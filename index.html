@@ -81,6 +81,7 @@
         ul { padding-left: 20px; margin-top: 8px; }
         li { margin-bottom: 8px; }
         .highlight { font-weight: 600; color: var(--accent); }
+        .certification-badge { background: #eff6ff; padding: 10px 15px; border-radius: 6px; display: inline-block; margin-top: 10px; border: 1px solid #dbeafe; font-weight: 600; color: #1e40af; }
 
         @media (max-width: 650px) {
             body { padding: 20px; }
@@ -94,8 +95,8 @@
 <body>
 
 <div class="controls">
-    <button class="btn" id="theme-toggle">🌙 Theme</button>
-    <a href="Shashank_Resume.pdf" class="btn" download>📥 PDF</a>
+    <button class="btn" id="theme-toggle">🌙 Dark Mode</button>
+    <a href="Shashank_Resume.pdf" class="btn" download="Shashank_Resume.pdf">📥 PDF</a>
 </div>
 
 <header>
@@ -130,8 +131,8 @@
                 Splunk, Zabbix, Grafana, Prometheus, IAM, OAC
             </div>
             <div class="skill-box">
-                <strong>Additional Skills</strong>
-                Japanese (N5), 3D Printing (PLA Modeling), Windows Server, NGINX
+                <strong>Web & Server</strong>
+                IIS, Windows Server, NGINX, Load Balancers
             </div>
         </div>
     </section>
@@ -173,6 +174,21 @@
             </ul>
         </div>
     </section>
+
+    <section>
+        <h2>Education & Certifications</h2>
+        <p><strong>B.E. in Computer Science</strong> | B.V.B.C.E.T, Hubli (2013-2017)</p>
+        <div class="certification-badge">✔ Google Cloud Professional Cloud Architect (PCA)</div>
+    </section>
+
+    <section>
+        <h2>Interests & Languages</h2>
+        <ul>
+            <li><strong>Languages:</strong> English, Hindi, Kannada, Japanese (Basic/N5 Study).</li>
+            <li><strong>Hobbies:</strong> 3D Printing (Complex PLA Modeling), Amateur Astrophotography, Chess Tactics.</li>
+            <li><strong>Dietary:</strong> Vegetarian.</li>
+        </ul>
+    </section>
 </main>
 
 <script>
@@ -193,7 +209,7 @@
     });
 
     function updateToggleText(theme) {
-        toggle.innerText = theme === 'dark' ? '☀️ Light Mode' : '🌙 Theme';
+        toggle.innerHTML = theme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
     }
 </script>
 
