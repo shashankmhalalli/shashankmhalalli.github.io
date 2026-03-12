@@ -15,7 +15,6 @@
             --border: #e2e8f0;
         }
 
-        /* Dark Mode Variables */
         [data-theme="dark"] {
             --primary: #60a5fa;
             --secondary: #94a3b8;
@@ -37,7 +36,6 @@
             transition: background-color 0.3s, color 0.3s;
         }
 
-        /* Utility Buttons */
         .controls {
             position: fixed;
             top: 20px;
@@ -70,7 +68,7 @@
         h2 { color: var(--primary); border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-top: 40px; text-transform: uppercase; font-size: 1.1em; letter-spacing: 0.05em; }
         
         .skills-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px; }
-        .skill-box { background: var(--card-bg); padding: 15px; border-radius: 8px; border-left: 4px solid var(--accent); border-top: 1px solid var(--border); border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .skill-box { background: var(--card-bg); padding: 15px; border-radius: 8px; border: 1px solid var(--border); border-left: 4px solid var(--accent); }
         .skill-box strong { display: block; margin-bottom: 5px; color: var(--primary); }
         
         .job { margin-bottom: 35px; }
@@ -84,7 +82,6 @@
         li { margin-bottom: 8px; }
         .highlight { font-weight: 600; color: var(--accent); }
 
-        /* Responsive Fixes */
         @media (max-width: 650px) {
             body { padding: 20px; }
             .skills-container { grid-template-columns: 1fr; }
@@ -102,4 +99,103 @@
 </div>
 
 <header>
-    <h1>SHASHANK
+    <h1>SHASHANK HALALLI</h1>
+    <div class="contact-info">
+        Senior DevOps Engineer | +91 8867712152 | shashankmhalalli7@gmail.com | Bengaluru, India
+    </div>
+</header>
+
+<main>
+    <section>
+        <h2>Professional Summary</h2>
+        <p>
+            Senior DevOps Engineer with over 8 years of experience in designing, automating, and optimizing cloud infrastructure and CI/CD pipelines. 
+            Expertise in Kubernetes, AWS, and GCP. Recognized with the <span class="highlight">ACE Extra Mile Award</span> for delivering high-availability infrastructure solutions under aggressive deadlines.
+        </p>
+    </section>
+
+    <section>
+        <h2>Core Technical Skills</h2>
+        <div class="skills-container">
+            <div class="skill-box">
+                <strong>Cloud & Infrastructure</strong>
+                AWS (S3, CloudFront, Route53, EKS), GCP (Professional Cloud Architect), Terraform (IaC)
+            </div>
+            <div class="skill-box">
+                <strong>DevOps & Automation</strong>
+                Kubernetes, Docker, GitLab CI/CD, Jenkins, UrbanCode Deploy, HashiCorp Vault
+            </div>
+            <div class="skill-box">
+                <strong>Monitoring & Security</strong>
+                Splunk, Zabbix, Grafana, Prometheus, IAM, OAC
+            </div>
+            <div class="skill-box">
+                <strong>Additional Skills</strong>
+                Japanese (N5), 3D Printing (PLA Modeling), Windows Server, NGINX
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Professional Experience</h2>
+        
+        <div class="job">
+            <div class="job-header">
+                <span class="company-name">HCL Technologies | Senior Software Engineer</span>
+                <span class="job-date">Nov 2021 – Present</span>
+            </div>
+            
+            <div class="project-line">Project: T-Mobile USA (Jan 2024 – Present)</div>
+            <ul>
+                <li>Architected scalable application hosting using <span class="highlight">AWS S3 and CloudFront</span> with OAC for secure content delivery.</li>
+                <li>Designed and maintained Kubernetes infrastructure and pipelines for high-demand services.</li>
+                <li>Implemented <span class="highlight">Terraform</span> to provision and manage AWS resources.</li>
+            </ul>
+
+            <div class="project-line">Project: Thryve Digital (Highmark Health) | Nov 2021 – Dec 2023</div>
+            <ul>
+                <li>Managed mission-critical release pipelines ensuring package integrity.</li>
+                <li>Supported strategic migration of legacy workloads to <span class="highlight">Google Cloud Platform (GCP)</span>.</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <span class="company-name">Accenture | Software Analyst</span>
+                <span class="job-date">Jul 2017 – Nov 2021</span>
+            </div>
+            
+            <div class="project-line">Project: Travelers Insurance</div>
+            <ul>
+                <li>Led migration of enterprise .NET applications from Windows 2008 to 2016 servers.</li>
+                <li>Automated build and deployment processes using Jenkins and <span class="highlight">UrbanCode Deploy</span>.</li>
+                <li>Established <span class="highlight">Zabbix</span> monitoring for critical application endpoints.</li>
+            </ul>
+        </div>
+    </section>
+</main>
+
+<script>
+    const toggle = document.getElementById('theme-toggle');
+    const root = document.documentElement;
+
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    root.setAttribute('data-theme', savedTheme);
+    updateToggleText(savedTheme);
+
+    toggle.addEventListener('click', () => {
+        const currentTheme = root.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        root.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateToggleText(newTheme);
+    });
+
+    function updateToggleText(theme) {
+        toggle.innerText = theme === 'dark' ? '☀️ Light Mode' : '🌙 Theme';
+    }
+</script>
+
+</body>
+</html>
