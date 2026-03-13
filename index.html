@@ -7,17 +7,16 @@
     <style>
         :root {
             --primary: #1e40af;
-            --secondary: #334155;
             --accent: #2563eb;
             --bg: #f8fafc;
             --card-bg: #ffffff;
             --text: #1f2937;
             --border: #e2e8f0;
+            --linkedin: #0077b5;
         }
 
         [data-theme="dark"] {
             --primary: #60a5fa;
-            --secondary: #94a3b8;
             --accent: #3b82f6;
             --bg: #0f172a;
             --card-bg: #1e293b;
@@ -27,77 +26,52 @@
 
         body { 
             font-family: 'Inter', -apple-system, sans-serif; 
-            line-height: 1.6; 
             color: var(--text); 
-            max-width: 900px; 
+            max-width: 1000px; 
             margin: 0 auto; 
             padding: 40px; 
             background-color: var(--bg); 
-            transition: background-color 0.3s, color 0.3s;
+            transition: all 0.3s ease;
         }
 
-        .controls {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            gap: 10px;
-            z-index: 1000;
-        }
-
+        .controls { position: fixed; top: 20px; right: 20px; display: flex; gap: 10px; z-index: 1000; }
+        
         .btn {
-            padding: 8px 16px;
-            border-radius: 6px;
-            border: 1px solid var(--border);
-            background: var(--card-bg);
-            color: var(--text);
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.9em;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 8px 16px; border-radius: 6px; border: 1px solid var(--border);
+            background: var(--card-bg); color: var(--text); cursor: pointer;
+            font-weight: 600; font-size: 0.9em; text-decoration: none;
+            display: flex; align-items: center; gap: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
-        header { border-bottom: 4px solid var(--primary); padding-bottom: 20px; margin-bottom: 30px; text-align: center; }
-        h1 { margin: 0; color: var(--primary); font-size: 2.8em; letter-spacing: -0.02em; }
-        .contact-info { color: var(--secondary); margin-top: 10px; font-weight: 500; }
+        .btn-linkedin { background: var(--linkedin); color: white; border: none; }
         
-        h2 { color: var(--primary); border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-top: 40px; text-transform: uppercase; font-size: 1.1em; letter-spacing: 0.05em; }
-        
-        .skills-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px; }
-        .skill-box { background: var(--card-bg); padding: 15px; border-radius: 8px; border: 1px solid var(--border); border-left: 4px solid var(--accent); }
-        .skill-box strong { display: block; margin-bottom: 5px; color: var(--primary); }
-        
-        .job { margin-bottom: 35px; }
-        .job-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; }
-        .company-name { font-weight: 700; font-size: 1.2em; color: var(--primary); }
-        
-        .project-line { color: var(--accent); font-weight: 700; margin-top: 15px; margin-bottom: 8px; font-size: 1.05em; border-left: 2px solid var(--accent); padding-left: 10px; }
-        
-        ul { padding-left: 20px; margin-top: 8px; }
-        li { margin-bottom: 8px; }
-        .highlight { font-weight: 600; color: var(--accent); }
-        .certification-badge { background: var(--card-bg); padding: 10px 15px; border-radius: 6px; display: inline-block; margin-top: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--primary); }
+        header { border-left: 8px solid var(--primary); padding-left: 20px; margin-bottom: 50px; }
+        h1 { margin: 0; font-size: 3em; color: var(--primary); letter-spacing: -0.05em; }
+        .contact-row { display: flex; gap: 15px; font-weight: 500; color: var(--accent); margin-top: 5px; flex-wrap: wrap; }
 
-        /* Game UI */
-        .game-section {
-            margin-top: 60px;
-            padding: 30px;
-            background: var(--card-bg);
-            border: 2px dashed var(--border);
-            border-radius: 12px;
-            text-align: center;
-        }
-        #gameCanvas { background: #000; border-radius: 8px; display: block; margin: 20px auto; max-width: 100%; }
+        .tech-dashboard { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin: 40px 0; }
+        .tech-card { background: var(--card-bg); padding: 20px; border-radius: 12px; border: 1px solid var(--border); }
+        .tech-card h3 { margin-top: 0; color: var(--primary); font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.1em; }
+        .tech-list { font-weight: 600; font-size: 1.05em; }
 
-        @media (max-width: 650px) {
+        h2 { border-bottom: 2px solid var(--border); padding-bottom: 10px; margin-top: 50px; color: var(--primary); font-size: 1.3em; }
+        .job { margin-bottom: 50px; }
+        .job-meta { display: flex; justify-content: space-between; font-weight: 700; font-size: 1.1em; }
+        .project-block { background: rgba(37, 99, 235, 0.03); padding: 20px; border-radius: 8px; margin-top: 15px; border-left: 4px solid var(--accent); }
+        .project-title { font-weight: 700; color: var(--accent); margin-bottom: 10px; font-size: 1.1em; }
+        
+        ul { padding-left: 20px; margin-top: 10px; }
+        li { margin-bottom: 10px; }
+        .hl { color: var(--accent); font-weight: 600; }
+
+        .personal-footer { margin-top: 60px; padding: 25px; border-top: 1px solid var(--border); font-size: 0.9em; opacity: 0.9; }
+        .interest-grid { display: flex; gap: 40px; margin-top: 10px; }
+
+        @media (max-width: 768px) {
             body { padding: 20px; }
-            .skills-container { grid-template-columns: 1fr; }
-            .controls { position: relative; top: 0; right: 0; justify-content: center; margin-bottom: 20px; }
-            h1 { font-size: 2em; }
+            .tech-dashboard { grid-template-columns: 1fr; }
+            .interest-grid { flex-direction: column; gap: 15px; }
+            .controls { position: relative; top: 0; right: 0; margin-bottom: 20px; justify-content: center; }
         }
     </style>
 </head>
@@ -106,140 +80,116 @@
 <div class="controls">
     <button class="btn" id="theme-toggle">🌙 Dark Mode</button>
     <a href="Shashank_Resume.pdf" class="btn" download>📥 PDF</a>
+    <a href="https://www.linkedin.com/in/shashankmhalalli198/" target="_blank" class="btn btn-linkedin">LinkedIn</a>
 </div>
 
 <header>
     <h1>SHASHANK HALALLI</h1>
-    <div class="contact-info">
-        Senior DevOps Engineer | +91 8867712152 | shashankmhalalli7@gmail.com | Bengaluru, India
+    <div class="contact-row">
+        <span>Bengaluru, India</span> | <span>+91 8867712152</span> | <span>shashankmhalalli7@gmail.com</span>
     </div>
 </header>
 
 <main>
     <section>
-        <h2>Professional Summary</h2>
-        <p>Senior DevOps Engineer with over 8 years of experience in automating and optimizing cloud infrastructure. Expertise in <span class="highlight">Kubernetes, AWS, and GCP</span>. Awarded the ACE Extra Mile Award for excellence.</p>
-    </section>
-
-    <section>
-        <h2>Core Technical Skills</h2>
-        <div class="skills-container">
-            <div class="skill-box"><strong>Cloud & Infrastructure</strong>AWS (EKS, S3, CloudFront), GCP (PCA), Terraform</div>
-            <div class="skill-box"><strong>DevOps & Automation</strong>Kubernetes, Docker, GitLab CI/CD, Jenkins</div>
-            <div class="skill-box"><strong>Monitoring & Security</strong>Splunk, Grafana, Prometheus, Zabbix</div>
-            <div class="skill-box"><strong>Web & Server</strong>NGINX, IIS, Windows Server</div>
+        <h2>Technical Expertise</h2>
+        <div class="tech-dashboard">
+            <div class="tech-card">
+                <h3>Cloud & IaC</h3>
+                <div class="tech-list">AWS (EKS, S3, CloudFront), GCP (PCA), Terraform</div>
+            </div>
+            <div class="tech-card">
+                <h3>Orchestration</h3>
+                <div class="tech-list">Kubernetes (EKS), Docker, Helm, Node Groups</div>
+            </div>
+            <div class="tech-card">
+                <h3>CI/CD & Automation</h3>
+                <div class="tech-list">GitLab CI, Jenkins, UrbanCode Deploy, Shell Scripting</div>
+            </div>
+            <div class="tech-card">
+                <h3>Observability</h3>
+                <div class="tech-list">Splunk, Zabbix, Grafana, Prometheus</div>
+            </div>
         </div>
     </section>
 
     <section>
-        <h2>Experience</h2>
+        <h2>Professional Experience</h2>
+        
         <div class="job">
-            <div class="job-header">
-                <span class="company-name">HCL Technologies | Senior Software Engineer</span>
+            <div class="job-meta">
+                <span>HCL Technologies | Senior Software Engineer</span>
                 <span>Nov 2021 – Present</span>
             </div>
-            <div class="project-line">Project: T-Mobile USA</div>
-            <ul>
-                <li>Architected scalable hosting using <span class="highlight">AWS S3 and CloudFront</span>.</li>
-                <li>Designed Kubernetes infrastructure and CI/CD pipelines.</li>
-            </ul>
+            
+            <div class="project-block">
+                <div class="project-title">Project: T-Mobile USA (Jan 2024 – Present)</div>
+                <ul>
+                    <li>Architected and deployed highly available static and dynamic web hosting using <span class="hl">AWS S3 and CloudFront</span>, implementing Origin Access Control (OAC) for enhanced security.</li>
+                    <li>Automated end-to-end infrastructure provisioning using <span class="hl">Terraform</span>, managing complex state files and modularizing AWS resources for reuse across environments.</li>
+                    <li>Managed large-scale <span class="hl">Kubernetes (EKS)</span> clusters, including node group scaling, ingress controller configuration, and resource optimization for high-traffic mobile services.</li>
+                    <li>Developed and optimized multi-stage <span class="hl">GitLab CI/CD</span> pipelines, reducing deployment lead times and integrating automated security scanning.</li>
+                    <li>Provisioned and managed Route53 DNS configurations and SSL/TLS certificates via AWS Certificate Manager to ensure secure, low-latency content delivery.</li>
+                </ul>
+            </div>
+
+            <div class="project-block">
+                <div class="project-title">Project: Thryve Digital (Highmark Health) | Nov 2021 – Dec 2023</div>
+                <ul>
+                    <li>Led the migration and modernization of legacy healthcare workloads to <span class="hl">Google Cloud Platform (GCP)</span>, leveraging GKE and Cloud SQL.</li>
+                    <li>Orchestrated complex release cycles for mission-critical applications using <span class="hl">HashiCorp Vault</span> for secret management and UrbanCode for deployment tracking.</li>
+                    <li>Configured centralized logging and monitoring dashboards in <span class="hl">Splunk</span>, providing real-time visibility into application performance and error rates.</li>
+                    <li>Standardized Docker containerization across multiple development teams, establishing base images that complied with strict healthcare security standards.</li>
+                    <li>Automated repetitive sysadmin tasks using Python and Bash scripts, significantly reducing manual intervention in environment setup.</li>
+                </ul>
+            </div>
         </div>
+
         <div class="job">
-            <div class="job-header">
-                <span class="company-name">Accenture | Software Analyst</span>
+            <div class="job-meta">
+                <span>Accenture | Software Analyst</span>
                 <span>Jul 2017 – Nov 2021</span>
             </div>
-            <div class="project-line">Project: Travelers Insurance</div>
-            <ul>
-                <li>Led migration of .NET applications to Windows 2016 servers.</li>
-                <li>Automated deployments using Jenkins and UrbanCode Deploy.</li>
-            </ul>
+            <div class="project-block">
+                <div class="project-title">Project: Travelers Insurance</div>
+                <ul>
+                    <li>Spearheaded the large-scale migration of .NET enterprise applications from Windows Server 2008 to 2016, ensuring compatibility and performance stability.</li>
+                    <li>Architected and maintained automated build/release pipelines using <span class="hl">Jenkins and UrbanCode Deploy</span>, supporting hundreds of application components.</li>
+                    <li>Implemented enterprise-wide monitoring solutions using <span class="hl">Zabbix</span>, configuring custom triggers and alerts for critical server health metrics.</li>
+                    <li>Managed IIS (Internet Information Services) web server configurations, focusing on load balancing and high-availability setups for insurance portals.</li>
+                    <li>Collaborated with security teams to implement IAM roles and fine-grained access controls, adhering to the principle of least privilege.</li>
+                </ul>
+            </div>
         </div>
     </section>
 
     <section>
-        <h2>Certifications</h2>
-        <div class="certification-badge">✔ Google Cloud Professional Cloud Architect (PCA)</div>
+        <h2>Education & Certifications</h2>
+        <div class="job-meta" style="font-size: 1em; margin-bottom: 10px;">
+            <span>B.E. in Computer Science | B.V.B.C.E.T, Hubli</span>
+        </div>
+        <div style="background: var(--card-bg); padding: 10px 15px; border-radius: 6px; border: 1px solid var(--border); display: inline-block; font-weight: 600; color: var(--primary);">
+            ✔ Google Cloud Professional Cloud Architect (PCA)
+        </div>
     </section>
 
-    <div class="game-section">
-        <h3 style="margin-top:0">🎮 Deployment Snake</h3>
-        <p>Collect "Green Pods" to scale your cluster! Use arrow keys to move.</p>
-        <canvas id="gameCanvas" width="400" height="400"></canvas>
-        <button class="btn" style="margin: 0 auto" onclick="initGame()">Start Deployment</button>
-    </div>
+    <footer class="personal-footer">
+        <h3 style="color: var(--primary); font-size: 1em; text-transform: uppercase;">Personal Interests & Languages</h3>
+        <div class="interest-grid">
+            <div><strong>Languages:</strong> English, Hindi, Kannada, Japanese (Basic/N5 Study)</div>
+            <div><strong>Hobbies:</strong> 3D Printing (PLA Modeling), Amateur Astrophotography</div>
+        </div>
+    </footer>
 </main>
 
 <script>
-    // THEME TOGGLE - SIMPLE & ROBUST
     const btn = document.getElementById('theme-toggle');
+    const root = document.documentElement;
     btn.addEventListener('click', () => {
-        const root = document.documentElement;
-        if (root.getAttribute('data-theme') === 'dark') {
-            root.setAttribute('data-theme', 'light');
-            btn.innerHTML = '🌙 Dark Mode';
-        } else {
-            root.setAttribute('data-theme', 'dark');
-            btn.innerHTML = '☀️ Light Mode';
-        }
+        const isDark = root.getAttribute('data-theme') === 'dark';
+        root.setAttribute('data-theme', isDark ? 'light' : 'dark');
+        btn.innerHTML = isDark ? '🌙 Dark Mode' : '☀️ Light Mode';
     });
-
-    // SNAKE GAME
-    const canvas = document.getElementById("gameCanvas");
-    const ctx = canvas.getContext("2d");
-    const box = 20;
-    let snake, food, d, gameInterval;
-
-    function initGame() {
-        if(gameInterval) clearInterval(gameInterval);
-        snake = [{x: 9 * box, y: 10 * box}];
-        food = {x: Math.floor(Math.random()*19+1)*box, y: Math.floor(Math.random()*19+1)*box};
-        d = "RIGHT";
-        gameInterval = setInterval(draw, 100);
-    }
-
-    document.addEventListener("keydown", (e) => {
-        if(e.keyCode == 37 && d != "RIGHT") d = "LEFT";
-        else if(e.keyCode == 38 && d != "DOWN") d = "UP";
-        else if(e.keyCode == 39 && d != "LEFT") d = "RIGHT";
-        else if(e.keyCode == 40 && d != "UP") d = "DOWN";
-    });
-
-    function draw() {
-        ctx.fillStyle = "black";
-        ctx.fillRect(0, 0, 400, 400);
-
-        for(let i=0; i<snake.length; i++) {
-            ctx.fillStyle = (i==0) ? "#2563eb" : "#60a5fa";
-            ctx.fillRect(snake[i].x, snake[i].y, box, box);
-        }
-
-        ctx.fillStyle = "#10b981";
-        ctx.fillRect(food.x, food.y, box, box);
-
-        let sX = snake[0].x;
-        let sY = snake[0].y;
-
-        if(d == "LEFT") sX -= box;
-        if(d == "UP") sY -= box;
-        if(d == "RIGHT") sX += box;
-        if(d == "DOWN") sY += box;
-
-        if(sX == food.x && sY == food.y) {
-            food = {x: Math.floor(Math.random()*19+1)*box, y: Math.floor(Math.random()*19+1)*box};
-        } else {
-            snake.pop();
-        }
-
-        let newHead = {x: sX, y: sY};
-
-        if(sX < 0 || sX >= 400 || sY < 0 || sY >= 400 || snake.some(s => s.x === newHead.x && s.y === newHead.y)) {
-            clearInterval(gameInterval);
-            alert("Cluster Crashed! Re-deploying...");
-            initGame();
-        }
-        snake.unshift(newHead);
-    }
 </script>
 
 </body>
