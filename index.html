@@ -13,7 +13,7 @@
             --card-bg: #ffffff;
             --text: #1f2937;
             --border: #e2e8f0;
-            --game-bg: #000000;
+            --game-bg: #0f172a;
         }
 
         [data-theme="dark"] {
@@ -24,6 +24,7 @@
             --card-bg: #1e293b;
             --text: #f1f5f9;
             --border: #334155;
+            --game-bg: #000000;
         }
 
         body { 
@@ -37,73 +38,27 @@
             transition: background-color 0.3s, color 0.3s;
         }
 
-        .controls { position: fixed; top: 20px; right: 20px; display: flex; gap: 10px; z-index: 1000; }
-        
+        .controls { 
+            position: fixed; top: 20px; right: 20px; 
+            display: flex; gap: 10px; z-index: 1000; 
+        }
+
         .btn {
-            padding: 8px 16px;
-            border-radius: 6px;
-            border: 1px solid var(--border);
-            background: var(--card-bg);
-            color: var(--text);
-            cursor: pointer;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            padding: 8px 16px; border-radius: 6px; border: 1px solid var(--border);
+            background: var(--card-bg); color: var(--text); cursor: pointer;
+            font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         header { border-bottom: 4px solid var(--primary); padding-bottom: 20px; margin-bottom: 30px; text-align: center; }
         h1 { margin: 0; color: var(--primary); font-size: 2.8em; }
+        .contact-info { color: var(--secondary); margin-top: 10px; font-weight: 500; }
         
-        /* Skills Grid */
-        .skills-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0; }
+        h2 { color: var(--primary); border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-top: 40px; text-transform: uppercase; font-size: 1.1em; }
+        
+        .skills-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px; }
         .skill-box { background: var(--card-bg); padding: 15px; border-radius: 8px; border: 1px solid var(--border); border-left: 4px solid var(--accent); }
-
-        /* Game Section */
-        .game-wrapper {
-            margin-top: 50px;
-            padding: 20px;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            text-align: center;
-        }
+        .skill-box strong { display: block; margin-bottom: 5px; color: var(--primary); }
         
-        #snakeGame {
-            background: var(--game-bg);
-            display: block;
-            margin: 20px auto;
-            border-radius: 4px;
-            max-width: 100%;
-            height: auto;
-        }
-
-        .terminal-text { font-family: 'Courier New', Courier, monospace; color: var(--accent); }
-
-        @media (max-width: 650px) {
-            body { padding: 20px; }
-            .skills-container { grid-template-columns: 1fr; }
-            .controls { position: relative; top: 0; right: 0; margin-bottom: 20px; }
-        }
-    </style>
-</head>
-<body>
-
-<div class="controls">
-    <button class="btn" id="theme-toggle">🌙 Dark Mode</button>
-    <a href="#" class="btn">📥 PDF</a>
-</div>
-
-<header>
-    <h1>SHASHANK HALALLI</h1>
-    <p>Senior DevOps Engineer | Bengaluru, India</p>
-</header>
-
-<main>
-    <section class="skills-container">
-        <div class="skill-box"><strong>Cloud</strong>AWS, GCP, Terraform</div>
-        <div class="skill-box"><strong>Containers</strong>Kubernetes, Docker, EKS</div>
-    </section>
-
-    <div class="game-wrapper">
+        .job { margin-bottom: 35px; }
+        .job-header { display: flex; justify-content: space-between; align-items: baseline
