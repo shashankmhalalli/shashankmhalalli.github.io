@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +13,6 @@
             --card-bg: #ffffff;
             --text: #1f2937;
             --border: #e2e8f0;
-            --game-bg: #0f172a;
         }
 
         [data-theme="dark"] {
@@ -24,7 +23,6 @@
             --card-bg: #1e293b;
             --text: #f1f5f9;
             --border: #334155;
-            --game-bg: #000000;
         }
 
         body { 
@@ -38,27 +36,211 @@
             transition: background-color 0.3s, color 0.3s;
         }
 
-        .controls { 
-            position: fixed; top: 20px; right: 20px; 
-            display: flex; gap: 10px; z-index: 1000; 
+        .controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
         }
 
         .btn {
-            padding: 8px 16px; border-radius: 6px; border: 1px solid var(--border);
-            background: var(--card-bg); color: var(--text); cursor: pointer;
-            font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 8px;
+            padding: 8px 16px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: var(--card-bg);
+            color: var(--text);
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         header { border-bottom: 4px solid var(--primary); padding-bottom: 20px; margin-bottom: 30px; text-align: center; }
-        h1 { margin: 0; color: var(--primary); font-size: 2.8em; }
+        h1 { margin: 0; color: var(--primary); font-size: 2.8em; letter-spacing: -0.02em; }
         .contact-info { color: var(--secondary); margin-top: 10px; font-weight: 500; }
         
-        h2 { color: var(--primary); border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-top: 40px; text-transform: uppercase; font-size: 1.1em; }
+        h2 { color: var(--primary); border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-top: 40px; text-transform: uppercase; font-size: 1.1em; letter-spacing: 0.05em; }
         
         .skills-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px; }
         .skill-box { background: var(--card-bg); padding: 15px; border-radius: 8px; border: 1px solid var(--border); border-left: 4px solid var(--accent); }
         .skill-box strong { display: block; margin-bottom: 5px; color: var(--primary); }
         
         .job { margin-bottom: 35px; }
-        .job-header { display: flex; justify-content: space-between; align-items: baseline
+        .job-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; }
+        .company-name { font-weight: 700; font-size: 1.2em; color: var(--primary); }
+        
+        .project-line { color: var(--accent); font-weight: 700; margin-top: 15px; margin-bottom: 8px; font-size: 1.05em; border-left: 2px solid var(--accent); padding-left: 10px; }
+        
+        ul { padding-left: 20px; margin-top: 8px; }
+        li { margin-bottom: 8px; }
+        .highlight { font-weight: 600; color: var(--accent); }
+        .certification-badge { background: var(--card-bg); padding: 10px 15px; border-radius: 6px; display: inline-block; margin-top: 10px; border: 1px solid var(--border); font-weight: 600; color: var(--primary); }
+
+        /* Game UI */
+        .game-section {
+            margin-top: 60px;
+            padding: 30px;
+            background: var(--card-bg);
+            border: 2px dashed var(--border);
+            border-radius: 12px;
+            text-align: center;
+        }
+        #gameCanvas { background: #000; border-radius: 8px; display: block; margin: 20px auto; max-width: 100%; }
+
+        @media (max-width: 650px) {
+            body { padding: 20px; }
+            .skills-container { grid-template-columns: 1fr; }
+            .controls { position: relative; top: 0; right: 0; justify-content: center; margin-bottom: 20px; }
+            h1 { font-size: 2em; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="controls">
+    <button class="btn" id="theme-toggle">🌙 Dark Mode</button>
+    <a href="Shashank_Resume.pdf" class="btn" download>📥 PDF</a>
+</div>
+
+<header>
+    <h1>SHASHANK HALALLI</h1>
+    <div class="contact-info">
+        Senior DevOps Engineer | +91 8867712152 | shashankmhalalli7@gmail.com | Bengaluru, India
+    </div>
+</header>
+
+<main>
+    <section>
+        <h2>Professional Summary</h2>
+        <p>Senior DevOps Engineer with over 8 years of experience in automating and optimizing cloud infrastructure. Expertise in <span class="highlight">Kubernetes, AWS, and GCP</span>. Awarded the ACE Extra Mile Award for excellence.</p>
+    </section>
+
+    <section>
+        <h2>Core Technical Skills</h2>
+        <div class="skills-container">
+            <div class="skill-box"><strong>Cloud & Infrastructure</strong>AWS (EKS, S3, CloudFront), GCP (PCA), Terraform</div>
+            <div class="skill-box"><strong>DevOps & Automation</strong>Kubernetes, Docker, GitLab CI/CD, Jenkins</div>
+            <div class="skill-box"><strong>Monitoring & Security</strong>Splunk, Grafana, Prometheus, Zabbix</div>
+            <div class="skill-box"><strong>Web & Server</strong>NGINX, IIS, Windows Server</div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Experience</h2>
+        <div class="job">
+            <div class="job-header">
+                <span class="company-name">HCL Technologies | Senior Software Engineer</span>
+                <span>Nov 2021 – Present</span>
+            </div>
+            <div class="project-line">Project: T-Mobile USA</div>
+            <ul>
+                <li>Architected scalable hosting using <span class="highlight">AWS S3 and CloudFront</span>.</li>
+                <li>Designed Kubernetes infrastructure and CI/CD pipelines.</li>
+            </ul>
+        </div>
+        <div class="job">
+            <div class="job-header">
+                <span class="company-name">Accenture | Software Analyst</span>
+                <span>Jul 2017 – Nov 2021</span>
+            </div>
+            <div class="project-line">Project: Travelers Insurance</div>
+            <ul>
+                <li>Led migration of .NET applications to Windows 2016 servers.</li>
+                <li>Automated deployments using Jenkins and UrbanCode Deploy.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Certifications</h2>
+        <div class="certification-badge">✔ Google Cloud Professional Cloud Architect (PCA)</div>
+    </section>
+
+    <div class="game-section">
+        <h3 style="margin-top:0">🎮 Deployment Snake</h3>
+        <p>Collect "Green Pods" to scale your cluster! Use arrow keys to move.</p>
+        <canvas id="gameCanvas" width="400" height="400"></canvas>
+        <button class="btn" style="margin: 0 auto" onclick="initGame()">Start Deployment</button>
+    </div>
+</main>
+
+<script>
+    // THEME TOGGLE - SIMPLE & ROBUST
+    const btn = document.getElementById('theme-toggle');
+    btn.addEventListener('click', () => {
+        const root = document.documentElement;
+        if (root.getAttribute('data-theme') === 'dark') {
+            root.setAttribute('data-theme', 'light');
+            btn.innerHTML = '🌙 Dark Mode';
+        } else {
+            root.setAttribute('data-theme', 'dark');
+            btn.innerHTML = '☀️ Light Mode';
+        }
+    });
+
+    // SNAKE GAME
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+    const box = 20;
+    let snake, food, d, gameInterval;
+
+    function initGame() {
+        if(gameInterval) clearInterval(gameInterval);
+        snake = [{x: 9 * box, y: 10 * box}];
+        food = {x: Math.floor(Math.random()*19+1)*box, y: Math.floor(Math.random()*19+1)*box};
+        d = "RIGHT";
+        gameInterval = setInterval(draw, 100);
+    }
+
+    document.addEventListener("keydown", (e) => {
+        if(e.keyCode == 37 && d != "RIGHT") d = "LEFT";
+        else if(e.keyCode == 38 && d != "DOWN") d = "UP";
+        else if(e.keyCode == 39 && d != "LEFT") d = "RIGHT";
+        else if(e.keyCode == 40 && d != "UP") d = "DOWN";
+    });
+
+    function draw() {
+        ctx.fillStyle = "black";
+        ctx.fillRect(0, 0, 400, 400);
+
+        for(let i=0; i<snake.length; i++) {
+            ctx.fillStyle = (i==0) ? "#2563eb" : "#60a5fa";
+            ctx.fillRect(snake[i].x, snake[i].y, box, box);
+        }
+
+        ctx.fillStyle = "#10b981";
+        ctx.fillRect(food.x, food.y, box, box);
+
+        let sX = snake[0].x;
+        let sY = snake[0].y;
+
+        if(d == "LEFT") sX -= box;
+        if(d == "UP") sY -= box;
+        if(d == "RIGHT") sX += box;
+        if(d == "DOWN") sY += box;
+
+        if(sX == food.x && sY == food.y) {
+            food = {x: Math.floor(Math.random()*19+1)*box, y: Math.floor(Math.random()*19+1)*box};
+        } else {
+            snake.pop();
+        }
+
+        let newHead = {x: sX, y: sY};
+
+        if(sX < 0 || sX >= 400 || sY < 0 || sY >= 400 || snake.some(s => s.x === newHead.x && s.y === newHead.y)) {
+            clearInterval(gameInterval);
+            alert("Cluster Crashed! Re-deploying...");
+            initGame();
+        }
+        snake.unshift(newHead);
+    }
+</script>
+
+</body>
+</html>
