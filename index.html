@@ -51,8 +51,11 @@
 
         .tech-dashboard { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin: 40px 0; }
         .tech-card { background: var(--card-bg); padding: 20px; border-radius: 12px; border: 1px solid var(--border); }
-        .tech-card h3 { margin-top: 0; color: var(--primary); font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.1em; }
-        .tech-list { font-weight: 600; font-size: 1.05em; }
+        .tech-card h3 { margin: 0 0 15px 0; color: var(--primary); font-size: 0.75em; text-transform: uppercase; letter-spacing: 0.12em; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+        
+        .tech-list { list-style: none; padding: 0; margin: 0; }
+        .tech-list li { font-weight: 600; font-size: 1.05em; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+        .tech-list li::before { content: "▹"; color: var(--accent); }
 
         h2 { border-bottom: 2px solid var(--border); padding-bottom: 10px; margin-top: 50px; color: var(--primary); font-size: 1.3em; }
         .job { margin-bottom: 50px; }
@@ -60,8 +63,8 @@
         .project-block { background: rgba(37, 99, 235, 0.03); padding: 20px; border-radius: 8px; margin-top: 15px; border-left: 4px solid var(--accent); }
         .project-title { font-weight: 700; color: var(--accent); margin-bottom: 10px; font-size: 1.1em; }
         
-        ul { padding-left: 20px; margin-top: 10px; }
-        li { margin-bottom: 10px; }
+        ul.job-bullets { padding-left: 20px; margin-top: 10px; }
+        ul.job-bullets li { margin-bottom: 10px; }
         .hl { color: var(--accent); font-weight: 600; }
 
         .personal-footer { margin-top: 60px; padding: 25px; border-top: 1px solid var(--border); font-size: 0.9em; opacity: 0.9; }
@@ -92,23 +95,41 @@
 
 <main>
     <section>
-        <h2>Technical Expertise</h2>
+        <h2>Technical Stack</h2>
         <div class="tech-dashboard">
             <div class="tech-card">
                 <h3>Cloud & IaC</h3>
-                <div class="tech-list">AWS (EKS, S3, CloudFront), GCP (PCA), Terraform</div>
+                <ul class="tech-list">
+                    <li>AWS (VPC, EKS, Lambda, EC2, ASG, S3, CloudFront)</li>
+                    <li>GCP (PCA)</li>
+                    <li>Terraform</li>
+                </ul>
             </div>
             <div class="tech-card">
                 <h3>Orchestration</h3>
-                <div class="tech-list">Kubernetes (EKS), Docker, Helm, Node Groups</div>
+                <ul class="tech-list">
+                    <li>Kubernetes (EKS)</li>
+                    <li>Docker</li>
+                    <li>Helm</li>
+                    <li>Node Management</li>
+                </ul>
             </div>
             <div class="tech-card">
-                <h3>CI/CD & Automation</h3>
-                <div class="tech-list">GitLab CI, Jenkins, UrbanCode Deploy, Shell Scripting</div>
+                <h3>CI/CD & Tools</h3>
+                <ul class="tech-list">
+                    <li>GitLab CI</li>
+                    <li>Jenkins</li>
+                    <li>UrbanCode Deploy</li>
+                </ul>
             </div>
             <div class="tech-card">
                 <h3>Observability</h3>
-                <div class="tech-list">Splunk, Zabbix, Grafana, Prometheus</div>
+                <ul class="tech-list">
+                    <li>Splunk</li>
+                    <li>Zabbix</li>
+                    <li>Grafana</li>
+                    <li>Prometheus</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -124,23 +145,23 @@
             
             <div class="project-block">
                 <div class="project-title">Project: T-Mobile USA (Jan 2024 – Present)</div>
-                <ul>
-                    <li>Architected and deployed highly available static and dynamic web hosting using <span class="hl">AWS S3 and CloudFront</span>, implementing Origin Access Control (OAC) for enhanced security.</li>
-                    <li>Automated end-to-end infrastructure provisioning using <span class="hl">Terraform</span>, managing complex state files and modularizing AWS resources for reuse across environments.</li>
-                    <li>Managed large-scale <span class="hl">Kubernetes (EKS)</span> clusters, including node group scaling, ingress controller configuration, and resource optimization for high-traffic mobile services.</li>
-                    <li>Developed and optimized multi-stage <span class="hl">GitLab CI/CD</span> pipelines, reducing deployment lead times and integrating automated security scanning.</li>
-                    <li>Provisioned and managed Route53 DNS configurations and SSL/TLS certificates via AWS Certificate Manager to ensure secure, low-latency content delivery.</li>
+                <ul class="job-bullets">
+                    <li>Architected and deployed highly available web hosting using <span class="hl">AWS S3 and CloudFront</span>, implementing Origin Access Control (OAC) for secure content delivery.</li>
+                    <li>Automated end-to-end infrastructure provisioning using <span class="hl">Terraform</span>, modularizing AWS resources for consistent reuse across global environments.</li>
+                    <li>Managed large-scale <span class="hl">Kubernetes (EKS)</span> clusters, focusing on node group scaling, ingress configuration, and resource optimization for high-traffic mobile services.</li>
+                    <li>Developed and optimized multi-stage <span class="hl">GitLab CI/CD</span> pipelines, significantly reducing deployment lead times and integrating security scanning.</li>
+                    <li>Provisioned and managed Route53 DNS and SSL/TLS certificates via AWS Certificate Manager to ensure secure, low-latency traffic routing.</li>
                 </ul>
             </div>
 
             <div class="project-block">
-                <div class="project-title">Project: Thryve Digital (Highmark Health) | Nov 2021 – Dec 2023</div>
-                <ul>
-                    <li>Led the migration and modernization of legacy healthcare workloads to <span class="hl">Google Cloud Platform (GCP)</span>, leveraging GKE and Cloud SQL.</li>
-                    <li>Orchestrated complex release cycles for mission-critical applications using <span class="hl">HashiCorp Vault</span> for secret management and UrbanCode for deployment tracking.</li>
-                    <li>Configured centralized logging and monitoring dashboards in <span class="hl">Splunk</span>, providing real-time visibility into application performance and error rates.</li>
-                    <li>Standardized Docker containerization across multiple development teams, establishing base images that complied with strict healthcare security standards.</li>
-                    <li>Automated repetitive sysadmin tasks using Python and Bash scripts, significantly reducing manual intervention in environment setup.</li>
+                <div class="project-title">Thryve Digital (Highmark Health) | Nov 2021 – Dec 2023</div>
+                <ul class="job-bullets">
+                    <li>Led the migration of legacy healthcare workloads to <span class="hl">Google Cloud Platform (GCP)</span>, utilizing GKE and Cloud SQL for modernization.</li>
+                    <li>Orchestrated complex release cycles for mission-critical applications using <span class="hl">HashiCorp Vault</span> for secret management and UrbanCode for tracking.</li>
+                    <li>Configured centralized logging and monitoring dashboards in <span class="hl">Splunk</span>, providing real-time visibility into production error rates.</li>
+                    <li>Standardized Docker containerization across multiple teams, ensuring base images complied with strict healthcare security standards.</li>
+                    <li>Optimized environment setup and repetitive maintenance tasks, reducing manual intervention and improving system uptime.</li>
                 </ul>
             </div>
         </div>
@@ -152,12 +173,12 @@
             </div>
             <div class="project-block">
                 <div class="project-title">Project: Travelers Insurance</div>
-                <ul>
-                    <li>Spearheaded the large-scale migration of .NET enterprise applications from Windows Server 2008 to 2016, ensuring compatibility and performance stability.</li>
-                    <li>Architected and maintained automated build/release pipelines using <span class="hl">Jenkins and UrbanCode Deploy</span>, supporting hundreds of application components.</li>
-                    <li>Implemented enterprise-wide monitoring solutions using <span class="hl">Zabbix</span>, configuring custom triggers and alerts for critical server health metrics.</li>
-                    <li>Managed IIS (Internet Information Services) web server configurations, focusing on load balancing and high-availability setups for insurance portals.</li>
-                    <li>Collaborated with security teams to implement IAM roles and fine-grained access controls, adhering to the principle of least privilege.</li>
+                <ul class="job-bullets">
+                    <li>Spearheaded the migration of enterprise .NET applications from Windows Server 2008 to 2016, ensuring cross-platform compatibility.</li>
+                    <li>Architected and maintained automated build/release pipelines using <span class="hl">Jenkins and UrbanCode Deploy</span> for hundreds of components.</li>
+                    <li>Implemented enterprise monitoring with <span class="hl">Zabbix</span>, configuring custom triggers and proactive alerts for server health.</li>
+                    <li>Managed IIS web server configurations, specializing in load balancing and high-availability setups for insurance portals.</li>
+                    <li>Collaborated with security teams to implement IAM roles and fine-grained access controls based on least privilege.</li>
                 </ul>
             </div>
         </div>
@@ -176,8 +197,8 @@
     <footer class="personal-footer">
         <h3 style="color: var(--primary); font-size: 1em; text-transform: uppercase;">Personal Interests & Languages</h3>
         <div class="interest-grid">
-            <div><strong>Languages:</strong> English, Hindi, Kannada, Japanese (Basic/N5 Study)</div>
-            <div><strong>Hobbies:</strong> 3D Printing (PLA Modeling), Amateur Astrophotography</div>
+            <div><strong>Languages:</strong> English, Hindi, Kannada, Japanese (N5 Study)</div>
+            <div><strong>Hobbies:</strong> 3D Printing, Amateur Astrophotography</div>
         </div>
     </footer>
 </main>
