@@ -1,6 +1,6 @@
 name: Deploy Resume to AWS
 
-on:
+#on:
   push:
     branches:
       - main  # Runs every time you push to the main branch
